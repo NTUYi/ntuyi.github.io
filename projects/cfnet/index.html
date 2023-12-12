@@ -200,15 +200,6 @@
 </section>
 
 
-<style>
-  .results-carousel .item img {
-    height: auto; /* Adjust height as needed */
-    max-height: 1500px; /* Example height, adjust as needed */
-  }
-  .results-carousel {
-    height: auto; /* This ensures the carousel adjusts to the size of its contents */
-  }
-</style>
 
 <!-- 
 <section class="hero is-light is-small">
@@ -245,7 +236,16 @@
 </section> -->
 
 
-
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">Architecture</h2>
+    <img src="./static/images/arch.svg" alt="Architecture" height="300%" style="display: block; margin: auto;">
+    <p>
+      Tackling spatial inconsistencies from varied color edits, CFNet treats them as an image color inpainting problem. The process commences with an RGB to CIELab conversion, followed by mask application to produce an incomplete ab channel. The encoder, built on Vision Transformer (ViT), processes the input into global receptive fields, while the pixel-shuffling based decoder yields the coarse inpainting outcome. Lastly, the Refinement Module, rooted in the Residual-in-Residual Dense Block (RRDB), further refines the output, capitalizing on a deep and feature-rich design, ensuring boundary smoothing and enhanced color coherence.
+    </p>
+  
+  </div>
+</section>
 
 
 <section class="section" id="BibTeX">
@@ -257,6 +257,8 @@
       booktitle = {AAAI},
       year = {2024}
       }</code></pre>
+
+  
   </div>
 </section>
 
