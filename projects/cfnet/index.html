@@ -198,7 +198,19 @@
     </div>
   </div>
 </section>
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@inproceedings{CFNet2024,
+      author = {Yi Dong and Yuxi Wang and Ruoxi Fan and Wenqi Ouyang and Zhiqi Shen and Peiran Ren and Xuansong Xie},
+      title = {ChromaFusionNet (CFNet): Natural Fusion of Fine-grained Color Editing},
+      booktitle = {AAAI},
+      year = {2024}
+      }</code></pre>
 
+  
+  </div>
+</section>
 
 
 <!-- 
@@ -235,6 +247,28 @@
   </div>
 </section> -->
 
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">CFNet: Pioneering Color Fusion beyond Existing Method Limitations</h2>
+    <img src="./static/images/related_works.svg" alt="Architecture" height="300%" style="display: block; margin: auto;">
+    <p>
+      A comparative visual analysis of color fusion techniques across three related domains: image harmonization, color transfer, and image inpainting. The figure juxtaposes results from leading methods—Harmonizer, S2CRNet, two variants of Color Matcher (MKL and HM-MVGD-HM), CoordFill, and ZITS—against our CFNet. Note the discrepancies in boundary blending, color consistency, and texture preservation, with CFNet exemplifying superior performance in all aspects.
+    </p>
+  
+  </div>
+</section>
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">Seamless Integration of CFNet into Post-production: Eradicating Manual Edge Refinement and Saving Significant Time</h2>
+    <img src="./static/images/color_application.svg" alt="Architecture" height="100%" style="display: block; margin: auto;">
+    <p>
+      CFNet can be easily integrated into current pipelines. In conventional approaches for region-specific color enhancement, refining a coarse mask requires intricate manual adjustments, employing over 20 controls for color and geometric attributes, followed by meticulous visual inspections. CFNet radically transforms this workflow by automating edge refinement for these tasks. With CFNet, upon receiving a coarse object mask, potential regions prone to spatial color inconsistencies are swiftly detected using renowned edge detection techniques, such as Canny. Subsequently, CFNet processes the mask and its direct composition, delivering a region-specific color edit that's both consistent and seamless.
+    </p>
+  
+  </div>
+</section>
+
 
 <section class="section" id="BibTeX">
   <div class="container is-max-desktop content">
@@ -242,6 +276,19 @@
     <img src="./static/images/arch.svg" alt="Architecture" height="300%" style="display: block; margin: auto;">
     <p>
       Tackling spatial inconsistencies from varied color edits, CFNet treats them as an image color inpainting problem. The process commences with an RGB to CIELab conversion, followed by mask application to produce an incomplete ab channel. The encoder, built on Vision Transformer (ViT), processes the input into global receptive fields, while the pixel-shuffling based decoder yields the coarse inpainting outcome. Lastly, the Refinement Module, rooted in the Residual-in-Residual Dense Block (RRDB), further refines the output, capitalizing on a deep and feature-rich design, ensuring boundary smoothing and enhanced color coherence.
+    </p>
+  
+  </div>
+</section>
+
+
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">Application in Fine-grained Color Enhancement </h2>
+    <img src="./static/images/color_grading.svg" alt="Architecture" height="300%" style="display: block; margin: auto;">
+    <p>
+      While region-specific color adjustments boost visual appeal and expressiveness, they can introduce boundary issues. CFNet effectively blends these areas, removing inconsistencies and improving visual quality.
     </p>
   
   </div>
@@ -259,6 +306,19 @@
       }</code></pre>
 
   
+  </div>
+</section>
+
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">Additional Visual Results </h2>
+    <img src="./static/images/more visuals-1.svg" height="300%" style="display: block; margin: auto;">
+    <img src="./static/images/more visuals-2.svg" height="300%" style="display: block; margin: auto;">
+    <img src="./static/images/more visuals-3.svg" height="300%" style="display: block; margin: auto;">
+    <img src="./static/images/more visuals-4.svg" height="300%" style="display: block; margin: auto;">
+    <img src="./static/images/more visuals-5.svg" height="300%" style="display: block; margin: auto;">
+    <img src="./static/images/more visuals-6.svg" height="300%" style="display: block; margin: auto;">
   </div>
 </section>
 
