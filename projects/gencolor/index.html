@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="description"
+        content="GenColor: Generative and Expressive Color Enhancement with Pixel-Perfect Texture Preservation">
+    <meta name="keywords" content="GenColor, Image Enhancement, Diffusion Models, NeurIPS 2025">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>GenColor: Generative and Expressive Color Enhancement with Pixel-Perfect Texture Preservation</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+    <link href="./assets/css/fonts.css" rel="stylesheet">
+    <link rel="stylesheet" href="./assets/css/bulma.min.css">
+    <link rel="stylesheet" href="./assets/css/bulma-carousel.min.css">
+    <link rel="stylesheet" href="./assets/css/bulma-slider.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="./assets/css/academicons.min.css">
+    <link rel="stylesheet" href="./assets/css/index.css">
+
+    <script src="./assets/js/jquery.min.js"></script>
+    <script src="./assets/js/bulma-carousel.min.js"></script>
+    <script src="./assets/js/bulma-slider.min.js"></script>
+
+    <style>
+        .publication-title {
+            font-family: 'Google Sans', sans-serif;
+        }
+
+        .publication-authors {
+            font-family: 'Google Sans', sans-serif;
+        }
+
+        .abstract-text {
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
+        .teaser-image {
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+            display: block;
+        }
+
+        .method-image {
+            width: 100%;
+            max-width: 1000px;
+            margin: 0 auto;
+            display: block;
+        }
+
+        /* Comparison Styles adapted from MonetGPT */
+        .comparison-row {
+            max-width: 1200px;
+            margin: 40px auto;
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .method-toggle {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .method-toggle button {
+            margin: 0 5px;
+            padding: 8px 16px;
+            font-size: 14px;
+            border: 1px solid #ccc;
+            background: #fff;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .method-toggle button:hover {
+            background: #f0f0f0;
+        }
+
+        .method-toggle button.selected {
+            background: #e0f0ff;
+            border-color: #99ccff;
+            color: #003366;
+            font-weight: bold;
+        }
+
+        .comparison-images-three {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            align-items: start;
+        }
+
+        .image-container {
+            text-align: center;
+        }
+
+        .image-label {
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .comparison-img {
+            width: 100%;
+            height: auto;
+            border-radius: 4px;
+            border: 1px solid #eee;
+        }
+
+        .fade-out {
+            opacity: 0;
+            transition: opacity 0.2s ease-out;
+        }
+
+        .fade-in {
+            opacity: 1;
+            transition: opacity 0.2s ease-in;
+        }
+    </style>
+</head>
+
+<body>
+
+    <section class="hero">
+        <div class="hero-body">
+            <div class="container is-max-desktop">
+                <div class="columns is-centered">
+                    <div class="column has-text-centered">
+                        <h1 class="title is-1 publication-title">GenColor: Generative and Expressive Color Enhancement
+                            with Pixel-Perfect Texture Preservation</h1>
+                        <div class="is-size-5 publication-authors">
+                            <span class="author-block">Yi Dong<sup>1†</sup></span>, <span class="author-block">Yuxi
+                                Wang<sup>1†</sup></span>, <span class="author-block">Xianhui Lin<sup>2</sup></span>,
+                            <span class="author-block">Wenqi Ouyang<sup>1</sup></span>, <span class="author-block">Zhiqi
+                                Shen<sup>1*</sup></span>, <span class="author-block">Peiran Ren<sup>2*</sup></span>,
+                            <span class="author-block">Ruoxi Fan<sup>1</sup></span>, <span class="author-block">Rynson
+                                W. H. Lau<sup>3</sup></span>
+                        </div>
+
+                        <div class="is-size-5 publication-authors">
+                            <span class="author-block"><sup>1</sup>Nanyang Technological University</span>, <span
+                                class="author-block"><sup>2</sup>Alibaba Group</span>, <span
+                                class="author-block"><sup>3</sup>City University of Hong Kong</span>
+                        </div>
+
+                        <div class="is-size-6 publication-authors">
+                            <span class="author-block"><sup>†</sup>Equal contribution, <sup>*</sup>Corresponding
+                                authors</span>
+                        </div>
+
+                        <div class="column has-text-centered">
+                            <div class="publication-links">
+                                <span class="link-block">
+                                    <a href="https://openreview.net/pdf?id=n8AvXKcCeR" class="external-link button is-normal is-rounded is-dark">
+                                        <span class="icon"><i class="fas fa-file-pdf"></i></span>
+                                        <span>Paper</span>
+                                    </a>
+                                </span>
+                                <span class="link-block">
+                                    <a href="https://github.com/NTUYWANG103/GenColor" class="external-link button is-normal is-rounded is-dark">
+                                        <span class="icon"><i class="fas fa-database"></i></span>
+                                        <span>Dataset</span>
+                                    </a>
+                                </span>
+                                <span class="link-block">
+                                    <a href="https://github.com/NTUYWANG103/GenColor" class="external-link button is-normal is-rounded is-dark">
+                                        <span class="icon"><i class="fab fa-github"></i></span>
+                                        <span>Code</span>
+                                    </a>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container is-max-desktop">
+            <div class="columns is-centered has-text-centered">
+                <div class="column is-full">
+                    <img src="./assets/images/teaser.svg" class="teaser-image" alt="Teaser">
+                    <div class="content has-text-justified">
+                        <p>
+                            GenColor achieves expressive color enhancement with superior texture preservation.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container is-max-desktop">
+            <div class="columns is-centered has-text-centered">
+                <div class="column is-four-fifths">
+                    <h2 class="title is-3">Abstract</h2>
+                    <div class="content has-text-justified abstract-text">
+
+                        <p>
+                            Color enhancement is a crucial yet challenging task in digital photography. It demands
+                            methods that are (i) expressive enough for fine-grained adjustments, (ii) adaptable to
+                            diverse inputs, and (iii) able to preserve texture. Existing approaches typically fall short
+                            in at least one of these aspects, yielding unsatisfactory results.
+                        </p>
+                        <p>
+                            We propose <strong>GenColor</strong>, a novel diffusion-based framework for sophisticated,
+                            texture-preserving color enhancement. GenColor reframes the task as conditional image
+                            generation. Leveraging ControlNet and a tailored training scheme, it learns advanced color
+                            transformations that adapt to diverse lighting and content. We train GenColor on
+                            <strong>ARTISAN</strong>, our newly collected large-scale dataset of 1.2M high-quality
+                            photographs specifically curated for enhancement tasks.
+                        </p>
+                        <p>
+                            To overcome texture preservation limitations inherent in diffusion models, we introduce a
+                            color transfer network with a novel degradation scheme that simulates texture–color
+                            relationships. This network achieves pixel-perfect texture preservation while enabling
+                            fine-grained color matching with the diffusion-generated reference images. Extensive
+                            experiments show that GenColor produces visually compelling results comparable to those of
+                            expert colorists and surpasses state-of-the-art methods in both subjective and objective
+                            evaluations.
+                        </p>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container is-max-desktop">
+            <div class="columns is-centered has-text-centered">
+                <div class="column is-full">
+                    <h2 class="title is-3">Method</h2>
+                    <img src="./assets/images/method_overview.svg" class="method-image" alt="Method Overview">
+                    <div class="content has-text-justified">
+
+                        <p>
+                            GenColor addresses three key challenges through a three-phase process:
+                        </p>
+                        <ol>
+                            <li><strong>Generative Color Enhancement:</strong> A diffusion-based Color Generation module
+                                creates expressive color enhancements conditioned on the input image, trained on the
+                                ARTISAN-1M dataset.</li>
+                            <li><strong>Texture Preservation:</strong> A Texture Preservation module maintains texture
+                                integrity while transferring colors from the color reference to the input image.</li>
+                            <li><strong>Global Adjustment:</strong> A Global Adjustment module applies lightweight
+                                filters to enhance contrast and saturation.</li>
+                        </ol>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="video">
+        <div class="container is-max-desktop">
+            <h2 class="title is-3 has-text-centered">Supplementary Video</h2>
+            <div class="video-container" style="max-width: 800px; margin: 0 auto;">
+                <video controls width="100%" style="border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+                    <source src='GenColor_Supp.mp4' type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container is-max-desktop">
+            <h2 class="title is-3 has-text-centered">Comparisons</h2>
+            <div class="content has-text-centered">
+                <p>Click on the buttons to compare different methods against the Input and GenColor.</p>
+            </div>
+            <div id="comparison-section-new"></div>
+        </div>
+    </section>
+
+    <section class="section" id="commercial-comparison">
+        <div class="container is-max-desktop">
+            <h2 class="title is-3 has-text-centered">Texture Preservation in Commercial Models</h2>
+            <div class="content has-text-centered">
+                <p>
+                    Even the latest commercial closed-source models still have texture change problems. GenColor
+                    can effectively help optimize their results, achieving pixel-perfect texture preservation.
+                </p>
+                <p>Click on the buttons to compare different commercial models.</p>
+            </div>
+            <div id="commercial-comparison-section"></div>
+        </div>
+    </section>
+
+    <section class="section" id="BibTeX">
+        <div class="container is-max-desktop content">
+            <h2 class="title">BibTeX</h2>
+            <pre><code>@inproceedings{dong2025gencolor,
+  title={GenColor: Generative and Expressive Color Enhancement with Pixel-Perfect Texture Preservation},
+  author={Dong, Yi and Wang, Yuxi and Lin, Xianhui and Ouyang, Wenqi and Shen, Zhiqi and Ren, Peiran and Fan, Ruoxi and Lau, Rynson W. H.},
+  booktitle={NeurIPS},
+  year={2025}
+}</code></pre>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="content has-text-centered">
+                <p>
+                    This website is licensed under a <a rel="license"
+                        href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike
+                        4.0 International License</a>.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="./assets/js/comparison.js"></script>
+
+</body>
+
+</html>
+
